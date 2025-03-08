@@ -9,6 +9,15 @@ class Townperson(object):
         self.charnumber=charnumber
 
 class playDetective(Townperson):
-    """Creates the player version of the player character"""
+    """Creates the player version of the detective character"""
     def __init__(self, name, role,status,charnumber):
         super.__init__(self, name, role,status,charnumber)
+
+    def checkInv():
+        sasdad
+
+    def useItem():
+
+    def 
+
+    
