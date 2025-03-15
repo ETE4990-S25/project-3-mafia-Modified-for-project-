@@ -1,3 +1,5 @@
+ 
+Ideas
 ##echo "# project-1-mafia" >> README.md:
 ##git init:
 ##git add README.md:

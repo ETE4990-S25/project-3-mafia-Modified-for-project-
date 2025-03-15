@@ -49,3 +49,28 @@ if choice == '2':
               print(" ok then keep waiting...")
        else:
               print("Invalid choice. Please choose from 's', 'f', 'l', or 'w'.")
+#### charator list  method will pull from file 
+if choice ==  's':
+    my_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
+print (f" suspect options are:{my_list}")
+suspect_name = input("Who do you pick...:").strip().lower()
+print("Our the supect is:",suspect_name)
+
+
+
+
+
+
+## the death of a charator and removal
+## these are the town people 
+my_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
+victim_name = input ("Enter victim name here: ").strip().lower()
+
+
+
+if victim_name in [name.lower() for name in my_list]:
+    my_list = [name for name in my_list if name.lower() != victim_name]
+    print("status updates... the living are:", my_list)
+
+else:
+    print(f"{victim_name} was not found.")
