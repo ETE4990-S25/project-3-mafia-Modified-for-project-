@@ -36,6 +36,7 @@ if choice == '1':
     print("Invalid choice. Please choose either p, k, or g.")
 
 if choice == '2':
+  print (f"well dectetive it seems like you have your work cut out for ")
     ## PRINT (DECTETIVE INVENTORY)
        choice = input (" pick your method of pursuit: s for picking a suspect, f to follow tracks, l look for clues, w wait out the perp: ").strip()
 
@@ -58,7 +59,10 @@ print("Our the supect is:",suspect_name)
 
 
 
+if choice == 'f':
 
+  print(f"what is that...")
+  print(f " the murder weapon")
 
 
 ## the death of a charator and removal
