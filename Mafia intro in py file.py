@@ -36,6 +36,7 @@ if choice == '1':
     print("Invalid choice. Please choose either p, k, or g.")
 
 if choice == '2':
+  print (f"well dectetive it seems like you have your work cut out for ")
     ## PRINT (DECTETIVE INVENTORY)
        choice = input (" pick your method of pursuit: s for picking a suspect, f to follow tracks, l look for clues, w wait out the perp: ").strip()
 
@@ -49,3 +50,31 @@ if choice == '2':
               print(" ok then keep waiting...")
        else:
               print("Invalid choice. Please choose from 's', 'f', 'l', or 'w'.")
+#### charator list  method will pull from file 
+if choice ==  's':
+    my_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
+print (f" suspect options are:{my_list}")
+suspect_name = input("Who do you pick...:").strip().lower()
+print("Our the supect is:",suspect_name)
+
+
+
+if choice == 'f':
+
+  print(f"what is that...")
+  print(f " the murder weapon")
+
+
+## the death of a charator and removal
+## these are the town people 
+my_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
+victim_name = input ("Enter victim name here: ").strip().lower()
+
+
+
+if victim_name in [name.lower() for name in my_list]:
+    my_list = [name for name in my_list if name.lower() != victim_name]
+    print("status updates... the living are:", my_list)
+
+else:
+    print(f"{victim_name} was not found.")
