@@ -30,9 +30,9 @@ class playDetective(Character):
     #def lookClues():
 
 
-    def declareSuspect(self,target):
-     if target.role== "Murderer":
-         print(f"Congratulations, you have found {target.name} to be the murderer!")
+    def declareSuspect(self,sustarget):
+     if sustarget.role== "Murderer":
+         print(f"Congratulations, you have found {sustarget.name} to be the murderer!")
         
          return True #
      
@@ -54,7 +54,15 @@ class Doctor(Character):
                     else:
                         print("The doctor failed to save any Townsperson tonight")
                     break
-                
-                        
+
+
+class playKiller(Character):
+    def __init__(self,name,role,status):
+        super().__init__(name,role,status)
+
+    def killTown(self,killTarget,killMethod): #Method for player killer to eliminate townsperson
+        if killTarget.status == "Alive":
+            killTarget.status == "Injured" #Sets NPC status to Injured, which will cause them to die at the end of the night if not healed
+            # line here to remove the selected killmethod from the killer's inventory                   
 
     
