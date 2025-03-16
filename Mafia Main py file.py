@@ -38,7 +38,7 @@ print(f"Night is falling, its your time to shine")
 if choice == '1':
 # murder pick who 
   townpeople_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
-  print(f"Our vitum options are:" ,townpeople_list)
+  print(f"Our victum options are:" ,townpeople_list)
   victim_name = input ("Enter victim name here: ").strip().lower()
 
 
@@ -48,19 +48,19 @@ print(f" But who did the doctor save?")
 
 #doctor here picks who to save
 #Importing the classes from mafia_chara.py
-from mafia_chara import Character, Doctor
+from mafia_chara import Townperson, Doctor
 
-# Create a list of townspeople (instances of the Character class)
+# Create a list of townspeople (instances of the townperson class
 townslist = [
-    Character("Max", "Townsman", "Injured", 1),
-    Character("Eve", "Townsman", "Alive", 2),
-    Character("Bob", "Townsman", "Injured", 3),
-    Character("Jack", "Townsman", "Alive", 4),
-    Character("Ari", "Townsman", "Alive", 5)
+    Townperson("Max", "Townsman", "Injured", 1),
+    Townperson("Eve", "Townsman", "Alive", 2),
+    Townperson("Bob", "Townsman", "Injured", 3),
+    Townperson("Jack", "Townsman", "Alive", 4),
+    Townperson("Ari", "Townsman", "Alive", 5)
 ]
 
 # Create a doctor (instance of the Doctor class)
-doctor = Doctor("Dr. Smith", "Doctor", "Alive", 6)
+doctor = Doctor("Dr. Smith", "Doctor", "Alive")
 
 # Simulate the doctor trying to heal someone
 print("The doctor is trying to heal a townsperson...")
