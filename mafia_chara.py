@@ -1,6 +1,8 @@
 import random
 import mafia_items
-
+Knife=mafia_items.basicItems("Knife","BLABLABLA THIS IS A TEST DESCRIPTION",2)
+Gun=mafia_items.basicItems("Gun","BLABLABLA THIS IS A TEST DESCRIPTION",3)
+Pillow=mafia_items.basicItems("Pillow","BLABLABLA THIS IS A TEST DESCRIPTION",1)
 class Character:
     """Creates a base class for all game characters""" #created new seperate base to rectify issues w/ charnumber
     def __init__(self,name,role,status):
@@ -23,7 +25,7 @@ class playDetective(Character):
     def __init__(self,name,role,status):
         super().__init__(name,role,status)
         self.dectInventory=[]
-    def checkInv():
+    def checkInv(self):
         for item in self.dectInventory:
             print(f'{item},')
 
@@ -60,9 +62,19 @@ class playKiller(Character):
     def __init__(self,name,role,status):
         super().__init__(name,role,status)
 
+        self.killInv=[]  #just set to test the function, will remove once items file is done
+    def checkInv_k(self):
+        for item in self.killInv:
+            print(f'{item.Itemname}')
     def killTown(self,killTarget,killMethod): #Method for player killer to eliminate townsperson
-        if killTarget.status == "Alive":
-            killTarget.status == "Injured" #Sets NPC status to Injured, which will cause them to die at the end of the night if not healed
-            # line here to remove the selected killmethod from the killer's inventory                   
+        if killTarget.status == "Alive" and killMethod.itemUses !=0 :
+            killTarget.status = "Injured" #Sets NPC status to Injured, which will cause them to die at the end of the night if not healed
+            print(f"{killTarget.name}'s fate has been sealed...")
+
+            killMethod.itemUses-=1  #reducing the uses of the different kill methods,
+            if killMethod.itemUses==0:
+                self.killInv.remove(killMethod) # line here to remove the selected killmethod from the killer's inventory
+        #else:
+            #need to write an invalid selection method, maybe in main file instead??                   
 
     
