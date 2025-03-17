@@ -134,6 +134,11 @@ if choice == '2':
     print(f"{person.name}: {person.status}")
 
 
+
+
+
+
+
  ## PRINT (DECTETIVE INVENTORY)
   if choice == '2':
     choice = input (" pick your method of pursuit: s for picking a suspect, f to follow tracks, l for straigth to jail, w wait out the perp: ").strip().lower()
