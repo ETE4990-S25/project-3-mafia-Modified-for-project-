@@ -67,7 +67,7 @@ class playKiller(Character):
         self.killInv=[]  #just set to test the function, will remove once items file is done
     def checkInv_k(self):
         for item in self.killInv:
-            print(f'{item.Itemname}')
+            print(f'Item name:{item.Itemname} Description:{item.ItemDesc} Uses left:{item.itemUses}')
     def killTown(self,killTarget,killMethod): #Method for player killer to eliminate townsperson
         if killTarget.status == "Alive" and killMethod.itemUses !=0 :
             killTarget.status = "Injured" #Sets NPC status to Injured, which will cause them to die at the end of the night if not healed
