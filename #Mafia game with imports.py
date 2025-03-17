@@ -44,6 +44,28 @@ townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
 print(f"Our victim options are:" ,townperson_list)
 victim_name = input ("Enter victim name here: ").strip().lower()
 
+townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
+print(f"Our victim options are:" ,townperson_list)
+
+victim_name = input ("Enter victim name here: ").strip().lower()
+killmethodinput = input("What weapon will you use? ").strip()
+
+def get_target_by_name(name, townylist):                        #This block was created with AI assistance (Deepseek) {start}
+    for townie in townylist:                                    #
+        if townie.name.lower() == name.strip().lower():         #
+            return townie                                       #
+    return None                                                 #
+                                                                #These two functions are helper functions meant to convert the user input  
+def get_method_by_name(name, killer):                           #from strings into the proper objects to be fed into the class method below
+    for item in killer.killInv:                                 #
+        if item.Itemname.lower() == name.strip().lower():       #
+            return item                                         #
+    return None                                                 #
+
+kill_target = get_target_by_name(victim_name, townperson_list)          #
+kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
+
+killer.killTown(kill_target,kill_method )
 
 #import doc roll here
 
