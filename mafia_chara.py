@@ -92,3 +92,17 @@ class playKiller(Character):
             if killTarget.status == "Injured" or killTarget.status == "Dead":
                 print("this target is no longer available, please select another")      
     
+
+class NPCKiller(Character):
+    def __init__(self,name,role,status):
+        super().__init__(name,role,status)
+
+    def npcKill(self,townslist):
+        killerroll=random.randint(1,5) #selection of who to try to kill
+        for Townperson in townslist:
+            if Townperson.charnumber==killerroll:
+                if Townperson.status == "Alive":
+                    Townperson.status = "Injured"
+                else:
+                        print("The killer failed to kill any Townsperson tonight")
+                break    
