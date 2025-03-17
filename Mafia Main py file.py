@@ -48,7 +48,7 @@ if choice == '1':
 
 
 
- #import doc roll here
+ #import doc roll here done
 
   print(f" But who did the doctor save?")
 
@@ -88,7 +88,23 @@ if choice == '1':
  #   print (f" you got lucky...this time.")
 
   print(f" Night has fallen again... who is your next target? ")
-  #list with injured removed
+  
+#detective roll here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

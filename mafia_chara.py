@@ -37,8 +37,15 @@ class playDetective(Character):
          print(f"Congratulations, you have found {sustarget.name} to be the murderer!")
         
          return True #
-     
 
+
+class npcDetective(Character):
+    def __init__(self,name,role,status):
+        super().__init__(name,role,status)
+    def npcdeclareSus(self,townslist):
+        npcdecroll=random.randint(1,6):
+        if npcdecroll==6:
+            
 class Doctor(Character):
     def __init__(self,name,role,status):
         super().__init__(name,role,status)
