@@ -72,9 +72,12 @@ class playKiller(Character):
             print(f"{killTarget.name}'s fate has been sealed...")
 
             killMethod.itemUses-=1  #reducing the uses of the different kill methods,
-            if killMethod.itemUses==0:
-                self.killInv.remove(killMethod) # line here to remove the selected killmethod from the killer's inventory
-        #else:
-            #need to write an invalid selection method, maybe in main file instead??                   
-
+           # if killMethod.itemUses==0:
+            #    self.killInv.remove(killMethod) # line here to remove the selected killmethod from the killer's inventory
+            #commented that out for now, debating if item should remain in inventory or not, somewhat broken anyway
+        else:
+            if killMethod.itemUses ==0:
+                print("this method is no longer available, please select another")                 
+            if killTarget.status == "Injured" or killTarget.status == "Dead":
+                print("this target is no longer available, please select another")      
     
