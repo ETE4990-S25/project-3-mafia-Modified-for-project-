@@ -1,4 +1,4 @@
-murder_roll
+#murder_roll
 import random
 
 dice_roll = random.randint (1,6)
