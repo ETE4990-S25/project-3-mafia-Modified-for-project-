@@ -1,57 +1,80 @@
 import random
 import mafia_items
-
+Knife=mafia_items.basicItems("Knife","BLABLABLA THIS IS A TEST DESCRIPTION",2)
+Gun=mafia_items.basicItems("Gun","BLABLABLA THIS IS A TEST DESCRIPTION",3)
+Pillow=mafia_items.basicItems("Pillow","BLABLABLA THIS IS A TEST DESCRIPTION",1)
 class Character:
-    """Creates a base class for all game characters""" #created new seperate base to rectify attribute issues
-    def __init__(self, name, role, status):
-        self.name = name
-        self.role = role
-        self.status = status  # 'alive', 'injured', 'dead'
+    """Creates a base class for all game characters""" #created new seperate base to rectify issues w/ charnumber
+    def __init__(self,name,role,status):
+        self.name = name 
+        self.role = role  #Either Villager, Detective, Murderer, or Doctor
+        self.status = status  #will be either "Alive","Injured",and "Dead"
 
 class Townperson(Character):
     """Create the base model of a townsperson""" 
-    def __init__(self, name, role,status,charnumber):
-        self.name=name
-        self.role=role #Either Villager, Detective, Murderer, or Doctor
-        self.status=status #will be either "Alive","Injured",and "Dead"
+    def __init__(self,name,role,status,charnumber):
+        super().__init__(name, role, status)  
+        #self.name=name
+        #self.role=role #Either Villager, Detective, Murderer, or Doctor
+        #self.status=status #will be either "Alive","Injured",and "Dead"
         self.charnumber=charnumber #used in dice roll decision making for NPC actions
 
 
 class playDetective(Character):
     """Creates the player version of the detective character"""
-    def __init__(self, name, role,status):
-        super.__init__(self, name, role,status)
+    def __init__(self,name,role,status):
+        super().__init__(name,role,status)
         self.dectInventory=[]
-    def checkInv():
+    def checkInv(self):
         for item in self.dectInventory:
             print(f'{item},')
 
-    def lookClues():
+    #def lookClues():
 
 
-     def declareSuspect(self,target):
-      if target.role== "Murderer":
-         print(f"Congratulations, you have found {target.name} to be the murderer!")
+    def declareSuspect(self,sustarget):
+     if sustarget.role== "Murderer":
+         print(f"Congratulations, you have found {sustarget.name} to be the murderer!")
         
          return True #
      
 
 class Doctor(Character):
-    def __init__(self, name, role,status):
-        super.__init__(self, name, role,status)
+    def __init__(self,name,role,status):
+        super().__init__(name,role,status)
 
     def heal(self,townslist): #must remember to create townslist in main file, this is just list of townspeople for various functions
-        diceroll1= random.randint(1,2)
-        if diceroll1==1: #heal process start
+        #diceroll1= random.randint(1,2)
+        #if diceroll1==1: #heal process start   ->thought process here was to add 2nd layer of RNG to make it harder to save injured chara
             dcroll2= random.randint(1,5) #selection of who to try to heal
             for Townperson in townslist:
                 if Townperson.charnumber==dcroll2:
                     if Townperson.status == "Injured":
                         Townperson.status = "Alive" #Should reset their status to "Alive" if successful
                         print("The doctor was able to successfully save a Townsperson tonight")
-                        break
+                    
                     else:
                         print("The doctor failed to save any Townsperson tonight")
-                        break
+                    break
+
+
+class playKiller(Character):
+    def __init__(self,name,role,status):
+        super().__init__(name,role,status)
+
+        self.killInv=[]  #just set to test the function, will remove once items file is done
+    def checkInv_k(self):
+        for item in self.killInv:
+            print(f'{item.Itemname}')
+    def killTown(self,killTarget,killMethod): #Method for player killer to eliminate townsperson
+        if killTarget.status == "Alive" and killMethod.itemUses !=0 :
+            killTarget.status = "Injured" #Sets NPC status to Injured, which will cause them to die at the end of the night if not healed
+            print(f"{killTarget.name}'s fate has been sealed...")
+
+            killMethod.itemUses-=1  #reducing the uses of the different kill methods,
+            if killMethod.itemUses==0:
+                self.killInv.remove(killMethod) # line here to remove the selected killmethod from the killer's inventory
+        #else:
+            #need to write an invalid selection method, maybe in main file instead??                   
 
     
