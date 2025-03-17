@@ -16,8 +16,10 @@ print ("I dont often see many new people around this town...Lets find out who yo
 choice = input ( "Press 1 for Murder or 2 for Detective enter:")
 if choice == '1':
   print ("ooo scary a murder is in town")
+  print ( " Your goal is to go 3 nights without being caught...")
 elif choice == '2':
   print (" so theres a new sherif in town then...")
+  print ('your goal is to catch the murder before the third night')
 else:
   print("Pick again 1 or 2.")
   
@@ -33,24 +35,25 @@ if choice == '1':
     print("Ah, a classic one and done kind of deal.")
   else:
     print("Invalid choice. Please choose either p, k, or g.")
-print(f"Night is falling, its your time to shine")
+
+  print(f"Night is falling, its your time to shine")
 
 if choice == '1':
-# murder pick who 
+  # murder pick who 
   townpeople_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
-  print(f"Our victum options are:" ,townpeople_list)
+  print(f"Our victim options are:" ,townpeople_list)
   victim_name = input ("Enter victim name here: ").strip().lower()
 
 
 
-#import doc roll here
-print(f" But who did the doctor save?")
+ #import doc roll here
+  print(f" But who did the doctor save?")
 
-#doctor here picks who to save
-#Importing the classes from mafia_chara.py
+ #doctor here picks who to save
+ #Importing the classes from mafia_chara.py
 from mafia_chara import Townperson, Doctor
 
-# Create a list of townspeople (instances of the townperson class
+ # Create a list of townspeople (instances of the townperson class
 townslist = [
     Townperson("Max", "Townsman", "Injured", 1),
     Townperson("Eve", "Townsman", "Alive", 2),
@@ -71,8 +74,21 @@ print("\nCurrent statuses of all townspeople:")
 for person in townslist:
     print(f"{person.name}: {person.status}")
 
+print(f" A New Day has dawned ")
+print (f"There is a dectective on your trail... try not to get caught ")
+  # detective roll here 
+
+  #if detective picks joe the first try then you were caught 
+if suspect_name.lower( )== "Joe":
+  print (f" You were picked a suspect ")
+else: 
+    print (f" you got lucky...this time.")
+
+ print(f" Night has fallen again... who is your next ")
 
 
+
+# Detective
 if choice == '2':
   print (f"well dectetive it seems like you have your work cut out for ")
   print(f"Night is falling...")
@@ -94,14 +110,14 @@ print(f" But who did the doctor save?")
 
  ## PRINT (DECTETIVE INVENTORY)
 if choice == '2':
-  choice = input (" pick your method of pursuit: s for picking a suspect, f to follow tracks, l look for clues, w wait out the perp: ").strip().lower()
+  choice = input (" pick your method of pursuit: s for picking a suspect, f to follow tracks, l for straigth to jail, w wait out the perp: ").strip().lower()
 
   if choice.lower () == 's':
               print ("who is the most sus here")
   elif choice.lower() == 'f':
               print ("ooo follow those steps")
   elif choice.lower() == 'l':
-              print ("take out your magnifying glass.")
+              print ("take out your hand cuffs.")
   elif choice.lower() == 'w':
               print(" ok then keep waiting...")
   else:
@@ -113,7 +129,7 @@ if choice == '2':
     print (f" suspect options are:{townpeople_list}")
     suspect_name = input("Who do you pick...:").strip().lower().capitalize()
     print(f"Our the supect is:",suspect_name)
-
+    
 
   if (choice == 'f') or 'l':
 

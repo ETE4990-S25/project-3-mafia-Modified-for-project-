@@ -29,8 +29,8 @@ class playDetective(Character):
     def lookClues():
 
 
-    def declareSuspect(self,target):
-     if target.role== "Murderer":
+     def declareSuspect(self,target):
+      if target.role== "Murderer":
          print(f"Congratulations, you have found {target.name} to be the murderer!")
         
          return True #
