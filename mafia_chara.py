@@ -58,6 +58,8 @@ class Doctor(Character):
                     break
 
 
+
+
 class playKiller(Character):
     def __init__(self,name,role,status):
         super().__init__(name,role,status)
