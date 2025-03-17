@@ -142,6 +142,26 @@ print("\nCurrent statuses of all townspeople:")
 for person in townslist:
     print(f"{person.name}: {person.status}")
 
+print(f"Wow you made it to night 3 ... now lets see who makes it out alive...")
+
+# detective roll here
+
+
+# call the kill options
+
+
+#doc roll 
+print(f" But who did the doctor save?")
+ #doctor here picks who to save
+ #Importing the classes from mafia_chara.py
+
+print("The doctor is trying to heal a townsperson...")
+doctor.heal(townslist)
+
+# Optionally, print the status of all townspeople after the doctor attempts to heal
+print("\nCurrent statuses of all townspeople:")
+for person in townslist:
+    print(f"{person.name}: {person.status}")
 
 
 
@@ -169,6 +189,9 @@ if choice == '2':
   print("\nCurrent statuses of all townspeople:")
   for person in townslist:
     print(f"{person.name}: {person.status}")
+
+
+
 
 # import detective 
 
