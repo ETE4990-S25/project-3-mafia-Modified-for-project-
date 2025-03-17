@@ -27,7 +27,7 @@ class playDetective(Character):
         self.dectInventory=[]
     def checkInv(self):
         for item in self.dectInventory:
-            print(f'{item},')
+            print(f'Option:{item.Itemname} Description:{item.ItemDesc}')
 
     #def lookClues():
 
@@ -43,9 +43,11 @@ class npcDetective(Character):
     def __init__(self,name,role,status):
         super().__init__(name,role,status)
     def npcdeclareSus(self,townslist):
-        npcdecroll=random.randint(1,6):
+        npcdecroll=random.randint(1,6)
         if npcdecroll==6:
-            
+            asda
+
+
 class Doctor(Character):
     def __init__(self,name,role,status):
         super().__init__(name,role,status)
