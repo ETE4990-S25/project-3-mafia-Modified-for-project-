@@ -1,8 +1,9 @@
 import random
 import mafia_items
-Knife=mafia_items.basicItems("Knife","BLABLABLA THIS IS A TEST DESCRIPTION",2)
-Gun=mafia_items.basicItems("Gun","BLABLABLA THIS IS A TEST DESCRIPTION",3)
-Pillow=mafia_items.basicItems("Pillow","BLABLABLA THIS IS A TEST DESCRIPTION",1)
+Knife=mafia_items.basicItems("Knife","Didn't anyone ever tell you to be careful running around with knives? Number of uses",2)
+Gun=mafia_items.basicItems("Gun","Ah, a classic one and done kind of deal. Number of uses",3)
+Pillow=mafia_items.basicItems("Pillow","Night night it is... number of uses",1)
+
 class Character:
     """Creates a base class for all game characters""" #created new seperate base to rectify issues w/ charnumber
     def __init__(self,name,role,status):
@@ -68,6 +69,7 @@ class playKiller(Character):
     def checkInv_k(self):
         for item in self.killInv:
             print(f'Item name:{item.Itemname} Description:{item.ItemDesc} Uses left:{item.itemUses}')
+    
     def killTown(self,killTarget,killMethod): #Method for player killer to eliminate townsperson
         if killTarget.status == "Alive" and killMethod.itemUses !=0 :
             killTarget.status = "Injured" #Sets NPC status to Injured, which will cause them to die at the end of the night if not healed
