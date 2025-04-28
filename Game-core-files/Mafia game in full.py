@@ -1,14 +1,19 @@
 #Mafia game with imports
 #intro
-
+import time
+from mafia_chara import Townperson, Doctor
 input( "press enter to start:")
 print ( "wire sounds ")
+time.sleep(1) # Add a delay in seconds
 print (" flashing lights")
+time.sleep(1) # Add a delay in seconds
 print ( " woow you are spining out of control" )
 print ( " try to stop the spining")
 input (" press your enter to stop")
+# print("Wire sounds...\nFlashing lights...\nWoow, you're spinning out of control!\nTry to stop the spinning!")
 
 print ( " it seems like you have entered a time machine " )
+time.sleep(1) # Add a delay in seconds
 print ( " Welcome, or should I say good luck..." )
 ## player selection
 input("press enter to continue:")
@@ -17,9 +22,11 @@ print ("I dont often see many new people around this town...Lets find out who yo
 choice = input ( "Press 1 for Murder or 2 for Detective enter:")
 if choice == '1':
   print ("ooo scary a murder is in town")
+  time.sleep(1) # Add a delay in seconds
   print ( " Your goal is to go 3 nights without being caught...")
 elif choice == '2':
   print (" so theres a new sherif in town then...")
+  time.sleep(1) # Add a delay in seconds
   print ('your goal is to catch the murder before the third night')
 else:
   print("Pick again 1 or 2.:")
@@ -72,7 +79,7 @@ killer.killTown(kill_target,kill_method )
 print(f" But who did the doctor save?")
  #doctor here picks who to save
  #Importing the classes from mafia_chara.py
-from mafia_chara import Townperson, Doctor
+
 
  # Create a list of townspeople (instances of the townperson class
 townslist = [
@@ -313,8 +320,6 @@ Jail = mafia_items.basicItems ("Jail","Ah,straigth to jail...",3)
 detective.dectInventory=[Suspect,Follow,Jail]
 detective.checkInv()
 
-detective.dectInventory=[Suspect,Follow,Jail]
-detective.checkInv()
 
 dectoptionsel = input("Which option will you choose ").strip()
 townliststr=[testkiller.name] 
@@ -407,4 +412,5 @@ if dectoptionsel==Suspect.Itemname:
     print(f"Here is a list of the townspeople: {str(townliststr)}")
 
 print(f" Day 3... the trail has gone cold maybe they got away with it...")
+print(f"game over...")
 # the end of the game 

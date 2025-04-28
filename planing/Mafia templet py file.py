@@ -1,13 +1,16 @@
 # Mafia intro in py file
-
-input( "press enter to start:")
+import time
+start_game =input( "press enter to start:")
 print ( "wire sounds ")
+time.sleep(1) # Add a delay in seconds
 print (" flashing lights")
+time.sleep(1) # Add a delay in seconds
 print ( " woow you are spining out of control" )
 print ( " try to stop the spining")
 input (" press your enter to stop")
 
 print ( " it seems like you have entered a time machine " )
+time.sleep(2) # Add a delay in seconds
 print ( " Welcome, or should I say good luck..." )
 ## player selection
 input("press enter to continue:")
@@ -16,9 +19,11 @@ print ("I dont often see many new people around this town...Lets find out who yo
 choice = input ( "Press 1 for Murder or 2 for Detective enter:")
 if choice == '1':
   print ("ooo scary a murder is in town")
+  time.sleep(1) # Add a delay in seconds
   print ( " Your goal is to go 3 nights without being caught...")
 elif choice == '2':
   print (" so theres a new sherif in town then...")
+  time.sleep(1) # Add a delay in seconds
   print ('your goal is to catch the murder before the third night')
 else:
   print("Pick again 1 or 2.:")
@@ -26,12 +31,12 @@ else:
 ## inventory 
 if choice == '1':
  ##   print('murder inventory')
-  choice = input("Pick your murder method: p for pillow, k for knife, g for gun: ")
-  if choice == 'p':
+  weapon_choice = input("Pick your murder method: p for pillow, k for knife, g for gun: ")
+  if weapon_choice == 'p':
     print("Night night it is...")
-  elif choice == 'k':
+  elif weapon_choice == 'k':
     print("Didn't anyone ever tell you to be careful running around with knives?")
-  elif choice == 'g':
+  elif weapon_choice == 'g':
     print("Ah, a classic one and done kind of deal.")
   else:
     print("Invalid choice. Please choose either p, k, or g.")
