@@ -1,7 +1,7 @@
 #Mafia game with imports
 #intro
 import time
-from mafia_chara import Townperson, Doctor
+from mafia_chara import Townperson, Doctor, playDetective, npcDetective, playKiller, NPCKiller
 input( "press enter to start:")
 print ( "wire sounds ")
 time.sleep(1) # Add a delay in seconds
@@ -19,12 +19,13 @@ print ( " Welcome, or should I say good luck..." )
 input("press enter to continue:")
 print(" my name is Fern. I am the all seeing eye... I will be the narrator of this story")
 print ("I dont often see many new people around this town...Lets find out who you are")
-choice = input ( "Press 1 for Murder or 2 for Detective enter:")
-if choice == '1':
+Game_choice = input ( "Press 1 for Murder or 2 for Detective enter:")
+if Game_choice == '1':
   print ("ooo scary a murder is in town")
   time.sleep(1) # Add a delay in seconds
   print ( " Your goal is to go 3 nights without being caught...")
-elif choice == '2':
+  playKiller
+elif Game_choice == '2':
   print (" so theres a new sherif in town then...")
   time.sleep(1) # Add a delay in seconds
   print ('your goal is to catch the murder before the third night')
@@ -35,8 +36,8 @@ else:
 
   #the killer
     # calling invetory
-  from mafia_chara import playKiller
-import mafia_items
+  from mafia_chara import playKiller, Townperson, Doctor
+
 
 Pillow = mafia_items.basicItems("pillow","Night night it is... number of uses",2)
 Knife = mafia_items. basicItems("knife","Didn't anyone ever tell you to be careful running around with knives? Number of uses", 2)
@@ -48,15 +49,9 @@ killer.checkInv_k()
 
 # input here 
 # murder pick who  save input as a varible call
-#townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
-#print(f"Our victim options are:" ,townperson_list)
-#victim_name = input ("Enter victim name here: ").strip().lower()
-
 townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
-print(f"Our victim options are:" ,townperson_list)
-
 victim_name = input ("Enter victim name here: ").strip().lower()
-victim_name = input("Invalid name. Choose from the list: ").strip().lower()
+
 
 killmethodinput = input("What weapon will you use? ").strip()
 
@@ -70,21 +65,9 @@ def get_method_by_name(name, killer):                           #from strings in
     for item in killer.killInv:                                 #
         if item.Itemname.lower() == name.strip().lower():       #
             return item                                         #
-    return None                                                 #
-
-kill_target = get_target_by_name(victim_name, townperson_list)          #
-kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
-
-killer.killTown(kill_target,kill_method )
-
-#imported doc roll below
-
-print(f" But who did the doctor save?")
- #doctor here picks who to save
- #Importing the classes from mafia_chara.py
-
-
- # Create a list of townspeople (instances of the townperson class
+    return None       
+    
+# Create a list of townspeople (instances of the townperson class
 townslist = [
     Townperson("Max", "Townsman", "Injured", 1),
     Townperson("Eve", "Townsman", "Alive", 2),
@@ -94,7 +77,26 @@ townslist = [
 ]
 
   # Create a doctor (instance of the Doctor class)
-doctor = Doctor("Dr. Smith", "Doctor", "Alive")
+doctor = Doctor("Dr. Smith", "Doctor", "Alive")          
+kill_target = get_target_by_name(victim_name, townperson_list)          #
+kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
+
+killer.killTown(kill_target,kill_method )
+#game state handling                                    #
+daycounter=1
+
+if Game_choice==1: #setting up the killer game type
+    for daycounter<4:
+        print (f"Welcome to night {daycounter}.")
+        print (f"There is a dectective on your trail... try not to get caught ")
+        print(f"Our victim options are:" ,townperson_list)
+        optionselect=(f"What will you do? 1.)")
+    #imported doc roll below
+
+    print(f" But who did the doctor save?")
+    #doctor here picks who to save
+
+ 
 
   # Simulate the doctor trying to heal someone
 print("The doctor is trying to heal a townsperson...")
@@ -106,10 +108,10 @@ for person in townslist:
     print(f"{person.name}: {person.status}")
 #newday
 print(f" A New Day has dawned ")
-print (f"There is a dectective on your trail... try not to get caught ")
+
 
 #detective roll here
-detective= mafia_chara.playDetective( "Ana", "Detective","alive")
+detective= mafia_chara.npcDetective( "Ana", "Detective","alive")
 Suspect = mafia_chara.mafia_items.basicItems("Suspect","who is the most sus here...",2)
 Follow = mafia_chara.mafia_items.basicItems("Follow","ooo follow those steps ...", 2)
 Jail = mafia_chara.mafia_items.basicItems ("Jail","Ah,straigth to jail...",3)
