@@ -1,5 +1,11 @@
 #Mafia game with imports
 #intro
+<<<<<<< HEAD
+import mafia_items
+
+input( "press enter to start:" )
+print ( "wire sounds\n flashing lights\n woow you are spining out of control")
+=======
 import time
 from mafia_chara import Townperson, Doctor
 input( "press enter to start:")
@@ -8,6 +14,7 @@ time.sleep(1) # Add a delay in seconds
 print (" flashing lights")
 time.sleep(1) # Add a delay in seconds
 print ( " woow you are spining out of control" )
+>>>>>>> 75697f9027d9f36af3bd6c914323988406bad00e
 print ( " try to stop the spining")
 input (" press your enter to stop")
 # print("Wire sounds...\nFlashing lights...\nWoow, you're spinning out of control!\nTry to stop the spinning!")
@@ -19,12 +26,13 @@ print ( " Welcome, or should I say good luck..." )
 input("press enter to continue:")
 print(" my name is Fern. I am the all seeing eye... I will be the narrator of this story")
 print ("I dont often see many new people around this town...Lets find out who you are")
-choice = input ( "Press 1 for Murder or 2 for Detective enter:")
-if choice == '1':
+Game_choice = input ( "Press 1 for Murder or 2 for Detective enter:")
+if Game_choice == '1':
   print ("ooo scary a murder is in town")
   time.sleep(1) # Add a delay in seconds
   print ( " Your goal is to go 3 nights without being caught...")
-elif choice == '2':
+
+elif Game_choice == '2':
   print (" so theres a new sherif in town then...")
   time.sleep(1) # Add a delay in seconds
   print ('your goal is to catch the murder before the third night')
@@ -34,8 +42,8 @@ else:
 
   #the killer
     # calling invetory
-  from mafia_chara import playKiller
-import mafia_items
+  from mafia_chara import playKiller, Townperson, Doctor
+
 
 Pillow = mafia_items.basicItems("pillow","Night night it is... number of uses",2)
 Knife = mafia_items. basicItems("knife","Didn't anyone ever tell you to be careful running around with knives? Number of uses", 2)
@@ -68,18 +76,17 @@ def get_method_by_name(name, killer):                           #from strings in
         if item.Itemname.lower() == name.strip().lower():       #
             return item                                         #
     return None                                                 #
+daycounter=1
+for daycounter<4
+    kill_target = get_target_by_name(victim_name, townperson_list)          #
+    kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
 
-kill_target = get_target_by_name(victim_name, townperson_list)          #
-kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
+    killer.killTown(kill_target,kill_method )
 
-killer.killTown(kill_target,kill_method )
+    #imported doc roll below
 
-#imported doc roll below
-
-print(f" But who did the doctor save?")
- #doctor here picks who to save
- #Importing the classes from mafia_chara.py
-
+    print(f" But who did the doctor save?")
+    #doctor here picks who to save
 
  # Create a list of townspeople (instances of the townperson class
 townslist = [
