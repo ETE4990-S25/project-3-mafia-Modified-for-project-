@@ -1,5 +1,6 @@
 import time
 import mafia_items
+import random
 from mafia_chara import Townperson, Doctor, playDetective, npcDetective, playKiller, NPCKiller
 input( "press enter to start:")
 print ( "wire sounds ")
@@ -70,30 +71,42 @@ daycounter=1
 Pillow = mafia_items.basicItems("pillow","Night night it is... number of uses",2)
 Knife = mafia_items.basicItems("knife","Didn't anyone ever tell you to be careful running around with knives? Number of uses", 2)
 Gun = mafia_items.basicItems("gun","Ah, a classic one and done kind of deal. Number of uses",3)
-playerK.killInv=[Knife,Pillow,Gun] 
+playerK.killInv=[Knife,Pillow,Gun]
+
+GameOver=False
 if Game_choice==1: #setting up the killer game type
+    
     while daycounter<4:
-        print (f"Welcome to night {daycounter}.")
-        print (f"There is a detective on your trail... try not to get caught ")
-        print("\nCurrent statuses of all townspeople:")
-        for person in townslist:
-            print(f"{person.name}: {person.status}")
-        selecting = True
-        while selecting == True:
-            print(f"What will you do?\n 1.Check Inventory, 2.Kill)")
-            optionselect=input("Please enter only the number of your choice")
-            if optionselect=="1":
-                playerK.checkInv_k()
-            elif optionselect=="2":
-                killmethodinput = input("What weapon will you use? ").strip()
-                victim_name = input("Enter victim name here: ").strip().lower()
-                kill_target = get_target_by_name(victim_name, townperson_list)          #
-                kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
-                playerK.killTown(kill_target,kill_method )
-                selecting==False
+    #while GameOver==False:
+        while GameOver==False:
+        #while daycounter<4:
+            print (f"Welcome to night {daycounter}.")
+            print (f"There is a detective on your trail... try not to get caught ")
+            print("\nCurrent statuses of all townspeople:")
+            for person in townslist:
+                print(f"{person.name}: {person.status}")
+            selecting = True
+            while selecting == True:
+                print(f"What will you do?\n 1.Check Inventory, 2.Kill)")
+                optionselect=input("Please enter only the number of your choice")
+                if optionselect=="1":
+                    playerK.checkInv_k()
+                elif optionselect=="2":
+                    killmethodinput = input("What weapon will you use? ").strip()
+                    victim_name = input("Enter victim name here: ").strip().lower()
+                    kill_target = get_target_by_name(victim_name, townperson_list)          #
+                    kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
+                    playerK.killTown(kill_target,kill_method )
+                    selecting==False
+                else:
+                    print("Invalid Input")
+            print("The doctor is trying to heal a townsperson...")
+            doctor.heal(townslist)
+            #"Detective" rolls to catch a suspect (simplified here)
+            npcdecroll=random.randint(1,6)
+            if npcdecroll==6:
+                print("The detective has caught the Murderer! Game Over")
+                GameOver=True
             else:
-                print("Invalid Input")
-        print("The doctor is trying to heal a townsperson...")
-        doctor.heal(townslist)
-        print(f" A New Day has dawned ")
-        time.sleep(5)
+                print("The detective failed to catch the killer")
+            time.sleep(5)
