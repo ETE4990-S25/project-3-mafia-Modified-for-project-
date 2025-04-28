@@ -29,6 +29,7 @@ elif choice == '2':
   time.sleep(1) # Add a delay in seconds
   print ('your goal is to catch the murder before the third night')
 else:
+  choice = input("Invalid choice. Press 1 for Murder or 2 for Detective: ")
   print("Pick again 1 or 2.:")
 
 
@@ -47,14 +48,16 @@ killer.checkInv_k()
 
 # input here 
 # murder pick who  save input as a varible call
-townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
-print(f"Our victim options are:" ,townperson_list)
-victim_name = input ("Enter victim name here: ").strip().lower()
+#townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
+#print(f"Our victim options are:" ,townperson_list)
+#victim_name = input ("Enter victim name here: ").strip().lower()
 
 townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
 print(f"Our victim options are:" ,townperson_list)
 
 victim_name = input ("Enter victim name here: ").strip().lower()
+victim_name = input("Invalid name. Choose from the list: ").strip().lower()
+
 killmethodinput = input("What weapon will you use? ").strip()
 
 def get_target_by_name(name, townylist):                        #This block was created with AI assistance (Deepseek) {start}
