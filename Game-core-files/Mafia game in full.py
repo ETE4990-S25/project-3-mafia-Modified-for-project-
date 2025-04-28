@@ -1,20 +1,13 @@
 #Mafia game with imports
 #intro
-<<<<<<< HEAD
-import mafia_items
-
-input( "press enter to start:" )
-print ( "wire sounds\n flashing lights\n woow you are spining out of control")
-=======
 import time
-from mafia_chara import Townperson, Doctor
+from mafia_chara import Townperson, Doctor, playDetective, npcDetective, playKiller, NPCKiller
 input( "press enter to start:")
 print ( "wire sounds ")
 time.sleep(1) # Add a delay in seconds
 print (" flashing lights")
 time.sleep(1) # Add a delay in seconds
 print ( " woow you are spining out of control" )
->>>>>>> 75697f9027d9f36af3bd6c914323988406bad00e
 print ( " try to stop the spining")
 input (" press your enter to stop")
 # print("Wire sounds...\nFlashing lights...\nWoow, you're spinning out of control!\nTry to stop the spinning!")
@@ -56,13 +49,9 @@ killer.checkInv_k()
 # input here 
 # murder pick who  save input as a varible call
 townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
-print(f"Our victim options are:" ,townperson_list)
 victim_name = input ("Enter victim name here: ").strip().lower()
 
-townperson_list = [ "Joe", "Eve", "Max", "Ari","Jack","Bob"]
-print(f"Our victim options are:" ,townperson_list)
 
-victim_name = input ("Enter victim name here: ").strip().lower()
 killmethodinput = input("What weapon will you use? ").strip()
 
 def get_target_by_name(name, townylist):                        #This block was created with AI assistance (Deepseek) {start}
@@ -75,20 +64,9 @@ def get_method_by_name(name, killer):                           #from strings in
     for item in killer.killInv:                                 #
         if item.Itemname.lower() == name.strip().lower():       #
             return item                                         #
-    return None                                                 #
-daycounter=1
-for daycounter<4
-    kill_target = get_target_by_name(victim_name, townperson_list)          #
-    kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
-
-    killer.killTown(kill_target,kill_method )
-
-    #imported doc roll below
-
-    print(f" But who did the doctor save?")
-    #doctor here picks who to save
-
- # Create a list of townspeople (instances of the townperson class
+    return None       
+    
+# Create a list of townspeople (instances of the townperson class
 townslist = [
     Townperson("Max", "Townsman", "Injured", 1),
     Townperson("Eve", "Townsman", "Alive", 2),
@@ -98,7 +76,26 @@ townslist = [
 ]
 
   # Create a doctor (instance of the Doctor class)
-doctor = Doctor("Dr. Smith", "Doctor", "Alive")
+doctor = Doctor("Dr. Smith", "Doctor", "Alive")          
+kill_target = get_target_by_name(victim_name, townperson_list)          #
+kill_method = get_method_by_name(killmethodinput, killer)   #This block was created with AI assistance (Deepseek) {end}
+
+killer.killTown(kill_target,kill_method )
+#game state handling                                    #
+daycounter=1
+
+if Game_choice==1: #setting up the killer game type
+    for daycounter<4:
+        print (f"Welcome to night {daycounter}.")
+        print (f"There is a dectective on your trail... try not to get caught ")
+        print(f"Our victim options are:" ,townperson_list)
+        optionselect=(f"What will you do? 1.)")
+    #imported doc roll below
+
+    print(f" But who did the doctor save?")
+    #doctor here picks who to save
+
+ 
 
   # Simulate the doctor trying to heal someone
 print("The doctor is trying to heal a townsperson...")
@@ -110,10 +107,10 @@ for person in townslist:
     print(f"{person.name}: {person.status}")
 #newday
 print(f" A New Day has dawned ")
-print (f"There is a dectective on your trail... try not to get caught ")
+
 
 #detective roll here
-detective= mafia_chara.playDetective( "Ana", "Detective","alive")
+detective= mafia_chara.npcDetective( "Ana", "Detective","alive")
 Suspect = mafia_chara.mafia_items.basicItems("Suspect","who is the most sus here...",2)
 Follow = mafia_chara.mafia_items.basicItems("Follow","ooo follow those steps ...", 2)
 Jail = mafia_chara.mafia_items.basicItems ("Jail","Ah,straigth to jail...",3)
