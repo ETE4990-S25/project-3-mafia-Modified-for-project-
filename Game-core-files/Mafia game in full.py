@@ -24,7 +24,7 @@ if Game_choice == '1':
   print ("ooo scary a murder is in town")
   time.sleep(1) # Add a delay in seconds
   print ( " Your goal is to go 3 nights without being caught...")
-
+  playKiller
 elif Game_choice == '2':
   print (" so theres a new sherif in town then...")
   time.sleep(1) # Add a delay in seconds
