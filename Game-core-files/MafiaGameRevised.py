@@ -110,3 +110,4 @@ if Game_choice==1: #setting up the killer game type
             else:
                 print("The detective failed to catch the killer")
             time.sleep(5)
+            daycounter+=1
